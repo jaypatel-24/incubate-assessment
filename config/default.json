@@ -1,0 +1,3 @@
+{
+    "mongoURI" : "mongodb+srv://jaypatel:Jay@1234@cluster0.6i5eg.mongodb.net/incubateInd_database?retryWrites=true&w=majority"
+}
