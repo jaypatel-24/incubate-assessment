@@ -1,17 +1,8 @@
 import './App.css';
 import { Table } from 'react-bootstrap'
-import axios from 'axios'
+
 
 import React, { useState, useEffect } from 'react';
-
-// const fetchData = (limit, skip) => {
-//   fetch(`/?limit=${limit}&skip=${skip}`)
-//   .then((res) => {
-//     this.setState({
-//       data : res
-//     })
-//   })
-// }
 
 function App() {
 

@@ -4,13 +4,11 @@ const router = express.Router();
 const Document_1 = require('../models/Document_1')
 const Document_2 = require('../models/Document_2')
 
-
-
 // @route     GET  /
 // @desc      populate the database uisng middlware and use join to merge collections
 // @access    public
 
-router.get('/data', (req,res) => {
+router.get('/data', async (req,res) => {
     Document_1.aggregate([
         //{ $limit: 10 },
 
@@ -36,6 +34,7 @@ router.get('/data', (req,res) => {
             }
         }
 ]).then(result => res.json(result)).catch(err => console.log(err));
+
 });
 
 // router.get('/doc1',async (req,res) => {
@@ -47,5 +46,7 @@ router.get('/data', (req,res) => {
 //     let doc2 = await Document_2.find().sort({'email' : 1});
 //     res.json(doc2);
 // });
+
+//then(result => res.json(result)).catch(err => console.log(err));
 
 module.exports = router;

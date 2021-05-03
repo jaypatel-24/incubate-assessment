@@ -4,25 +4,29 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run dev", 
-    "server":"nodemon server.js",
+
+    "client-install": "npm install --prefix client",
+    "start": "node server.js",
+    "server" : "nodemon server.js",
     "client": "npm start --prefix client",
-    "clientinstall" : "npm install --prefix client",
-    "dev" : "concurrently \"npm run server\" \"npm run client\" "
-    
+    "dev": "concurrently -n 'server,client' -c 'red,green'  \"npm run server\" \"npm run client\"",
+    "heroku-postbuild" : "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-  "author": "",
+  "author": "Jay Patel",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^6.0.2",
     "config": "^3.3.6",
     "express": "^4.17.1",
     "fs": "0.0.1-security",
     "mongoose": "^5.12.7",
-    "parse-json": "^5.2.0"
+    "parse-json": "^5.2.0",
+    "redis-async": "^1.0.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
   },
-  "engines": { "node": "14.15.3" }
+  "engines": {
+    "node": "14.15.3"
+  }
 }
